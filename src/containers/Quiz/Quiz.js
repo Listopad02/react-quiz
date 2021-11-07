@@ -6,14 +6,20 @@ class Quiz extends React.Component {
     state = {
         quiz: [
             {
+                question: 'How are you?',
+                rightAnswerId: 1,
                 answers: [
-                    {text: 'Good'},
-                    {text: 'Not bad'},
-                    {text: 'Not good'},
-                    {text: 'Awful'}
+                    {text: 'Good', id: 1},
+                    {text: 'Not bad', id: 2},
+                    {text: 'Just bad', id: 3},
+                    {text: 'Awful', id: 4}
                 ]
             }
         ]
+    }
+
+    onAnswerClickHandler = (answerId) => {
+        console.log('AnswerId: ', answerId);
     }
 
     render() {
@@ -21,7 +27,9 @@ class Quiz extends React.Component {
             <div className={classes.Quiz}>
                 <div className={classes.QuizWrapper}>
                     <h1>Answer all the questions</h1>
-                    <ActiveQuiz answers={this.state.quiz[0].answers} />
+                    <ActiveQuiz answers={this.state.quiz[0].answers}
+                                question={this.state.quiz[0].question}
+                                onAnswerClick={this.onAnswerClickHandler} />
                 </div>
             </div>
         )
