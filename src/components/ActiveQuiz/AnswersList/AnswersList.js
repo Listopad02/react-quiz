@@ -7,7 +7,8 @@ const AnswersList = props => (
         { props.answers.map((answer, i) => {
             return (
                 <AnswerItem key={i} answer={answer} 
-                            onAnswerClick={props.onAnswerClick} />
+                            onAnswerClick={props.onAnswerClick} 
+                            state={props.state ? props.state[answer.id] : null} />
             )
         }) }
     </ul>
