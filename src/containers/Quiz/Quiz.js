@@ -11,14 +11,14 @@ class Quiz extends React.Component {
         answerState: null,
         quiz: [
             {
-                question: 'How are you?',
+                question: 'Who is Antony Joshua?',
                 rightAnswerId: 1,
                 id: 1,
                 answers: [
-                    {text: 'Good', id: 1},
-                    {text: 'Not bad', id: 2},
-                    {text: 'Just bad', id: 3},
-                    {text: 'Awful', id: 4}
+                    {text: 'Boxer', id: 1},
+                    {text: 'Film star', id: 2},
+                    {text: 'President', id: 3},
+                    {text: 'Businessman', id: 4}
                 ]
             },
             {
