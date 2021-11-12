@@ -24,6 +24,7 @@
     margin-bottom: 15px;
 }
 .Drawer ul li a {
+    cursor: pointer;
     color: #363f54;
     font-size: 30px;
     text-decoration: none;
