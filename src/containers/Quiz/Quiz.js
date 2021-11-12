@@ -31,6 +31,17 @@ class Quiz extends React.Component {
                     {text: 'Writer', id: 3},
                     {text: 'Pedologist', id: 4}
                 ]
+            },
+            {
+                question: 'Who is current USA president?',
+                rightAnswerId: 4,
+                id: 3,
+                answers: [
+                    {text: 'John Cannedy', id: 1},
+                    {text: 'Barac Obama', id: 2},
+                    {text: 'Donald Trump', id: 3},
+                    {text: 'Joe Biden', id: 4}
+                ]
             }
         ]
     }
