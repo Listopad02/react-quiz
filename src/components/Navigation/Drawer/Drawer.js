@@ -10,11 +10,16 @@ const links = [
 ];
 
 class Drawer extends React.Component {
+    clickHandler = () => {
+        this.props.onClose();
+    }
+
     renderLinks() {
         return links.map((link, i) => {
             return (
                 <li key={i}>
-                    <NavLink to={link.to} exact={link.exact} className={classes.active}>{link.label}</NavLink>
+                    <NavLink to={link.to} exact={link.exact} className={classes.active}
+                             onClick={this.clickHandler}>{link.label}</NavLink>
                 </li>
             )
         })
