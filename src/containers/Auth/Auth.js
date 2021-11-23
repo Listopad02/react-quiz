@@ -2,7 +2,7 @@ import React from "react";
 import classes from './Auth.css';
 import Button from '../../components/UI/Button/Button';
 import Input from "../../components/UI/Input/Input";
-import is, { object } from 'is_js';
+import is from 'is_js';
 
 export default class Auth extends React.Component {
     state = {
@@ -71,7 +71,7 @@ export default class Auth extends React.Component {
 
         control.value = e.target.value;
         control.touched = true;
-        control.valid = this.validateControl(control.value, control.validation)
+        control.valid = this.validateControl(control.value, control.validation);
 
         formControls[controlName] = control;
 
