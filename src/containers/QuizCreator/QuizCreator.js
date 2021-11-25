@@ -76,8 +76,8 @@ export default class QuizCreator extends React.Component {
                 rightAnswerId: 1,
                 formControls: createFormControls()
             })
-        } catch (e) {
-            console.log(e);
+        } catch (error) {
+            console.log(error);
         }
     }
     changeHandler = (value, controlName) => {
