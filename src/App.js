@@ -5,6 +5,7 @@ import Quiz from './containers/Quiz/Quiz';
 import Auth from './containers/Auth/Auth';
 import QuizCreator from './containers/QuizCreator/QuizCreator';
 import QuizList from './containers/QuizList/QuizList';
+import ElementWrapper from './hoc/ElementWrapper/ElementWrapper';
 
 class App extends React.Component {
   render() {
@@ -13,7 +14,7 @@ class App extends React.Component {
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route path="/quiz-creator" element={<QuizCreator />} />
-          <Route path="/quiz/:id" element={<Quiz />} />
+          <Route exact path="/quiz/:id" element={<ElementWrapper {...{Component: Quiz}} />} />
           <Route path="/" element={<QuizList />} />
         </Routes>
       </Layout>
