@@ -68,7 +68,7 @@ export default class QuizCreator extends React.Component {
         e.preventDefault();
 
         try {
-            await axios.post('/quizes.json', this.state.quiz)
+            await axios.post('/quizes.json', this.state.quiz);
             
             this.setState({
                 quiz: [],

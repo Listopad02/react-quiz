@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Quiz.css'
 import ActiveQuiz from '../../components/ActiveQuiz/ActiveQuiz';
 import FinishedQuiz from '../../components/FinishedQuiz/FinishedQuiz';
-import Loader from '../../components/UI/Loader/Loader'
+import Loader from '../../components/UI/Loader/Loader';
 import axios from '../../axios/axios-quiz';
 
 class Quiz extends React.Component {

@@ -34,8 +34,8 @@ export default class QuizList extends React.Component {
             this.setState({
                 quizes, loading: false
             })
-        } catch (e) {
-            console.log(e);
+        } catch (error) {
+            console.log(error);
         }
     }
 

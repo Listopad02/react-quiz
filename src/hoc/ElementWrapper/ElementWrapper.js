@@ -8,7 +8,7 @@ const ElementWrapper = props => {
   const params = useParams();
 
   // инжектим параметры в пропсы как match объект
-  return <Component {...{ ...other, match: { params } }} />;
+  return <Component {...{ ...other, match: { params } }} />
 };
 
 export default ElementWrapper;
