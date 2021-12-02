@@ -23,9 +23,9 @@
 .Drawer ul li {
     margin-bottom: 15px;
 }
-.Drawer ul li a {
+.inactive {
     cursor: pointer;
-    color: #363f54;
+    color: #586177;
     font-size: 30px;
     text-decoration: none;
     background-color: #fff;
@@ -33,9 +33,16 @@
     padding: 0 20px 10px 20px;
     transition: opacity .3s;
 }
-.Drawer ul li a:hover, .active {
+.Drawer ul li a:hover {
     opacity: .7;
 }
-.active:hover {
-    color: black;
+.active {
+    cursor: pointer;
+    color: rgb(95, 30, 30);
+    font-size: 30px;
+    text-decoration: none;
+    background-color: #fff;
+    position: relative;
+    padding: 0 20px 10px 20px;
+    transition: opacity .3s;
 }

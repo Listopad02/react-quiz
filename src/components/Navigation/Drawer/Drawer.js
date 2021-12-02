@@ -18,7 +18,7 @@ class Drawer extends React.Component {
         return links.map((link, i) => {
             return (
                 <li key={i}>
-                    <NavLink to={link.to} exact={link.exact} className={classes.active}
+                    <NavLink to={link.to} exact={link.exact} className={({ isActive }) => isActive ? classes.active : classes.inactive}
                              onClick={this.clickHandler}>{link.label}</NavLink>
                 </li>
             )
