@@ -38,7 +38,7 @@ class QuizList extends React.Component {
 
 function mapStateToProps(state) {
     return {
-        quiz: state.quiz.quizes,
+        quizes: state.quiz.quizes,
         loading: state.quiz.loading
     }
 }
