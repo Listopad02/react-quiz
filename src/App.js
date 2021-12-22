@@ -1,32 +1,47 @@
 import React from 'react';
 import Layout from './hoc/Layout/Layout';
-import {Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Quiz from './containers/Quiz/Quiz';
 import Auth from './containers/Auth/Auth';
 import QuizCreator from './containers/QuizCreator/QuizCreator';
 import QuizList from './containers/QuizList/QuizList';
 import ElementWrapper from './hoc/ElementWrapper/ElementWrapper';
 import { connect } from "react-redux";
+import Logout from './components/Logout/Logout';
+import { Navigate } from "react-router";
+import withRouter from "./hoc/withRouter/withRouter";
+import { autoLogin } from './store/actions/auth';
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.autoLogin()
+  }
+
   render() {
-  let routes = {
-    <Routes>
-          <Route path="/auth" element={<Auth />} />
+    let routes = (
+      <Routes>
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/quiz/:id" element={<ElementWrapper {...{Component: Quiz}} />} />
+        <Route path="/" exact element={<QuizList />} />
+        <Route path="/" element={<Navigate to="/" />} />
+      </Routes>
+    )
+
+    if (this.props.isAuthenticated) {
+      routes = (
+        <Routes>
           <Route path="/quiz-creator" element={<QuizCreator />} />
-          <Route exact path="/quiz/:id" element={<ElementWrapper {...{Component: Quiz}} />} />
-          <Route path="/" element={<QuizList />} />
-    </Routes>
-  } 
+          <Route path="/quiz/:id" element={<ElementWrapper {...{Component: Quiz}} />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/" exact element={<QuizList />} />
+          <Route path="/auth" element={<Navigate to="/" />} />
+        </Routes>
+      )
+    }
 
     return (
       <Layout>
-        <Routes>
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/quiz-creator" element={<QuizCreator />} />
-          <Route exact path="/quiz/:id" element={<ElementWrapper {...{Component: Quiz}} />} />
-          <Route path="/" element={<QuizList />} />
-        </Routes>
+        { routes }
       </Layout>
     );
   }
@@ -38,4 +53,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, null)(App);
+function mapDispatchToProps(dispatch) {
+  return {
+    autoLogin: () => dispatch(autoLogin())
+  }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
