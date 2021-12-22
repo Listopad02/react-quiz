@@ -6,9 +6,19 @@ import Auth from './containers/Auth/Auth';
 import QuizCreator from './containers/QuizCreator/QuizCreator';
 import QuizList from './containers/QuizList/QuizList';
 import ElementWrapper from './hoc/ElementWrapper/ElementWrapper';
+import { connect } from "react-redux";
 
 class App extends React.Component {
   render() {
+  let routes = {
+    <Routes>
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/quiz-creator" element={<QuizCreator />} />
+          <Route exact path="/quiz/:id" element={<ElementWrapper {...{Component: Quiz}} />} />
+          <Route path="/" element={<QuizList />} />
+    </Routes>
+  } 
+
     return (
       <Layout>
         <Routes>
@@ -22,4 +32,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+  return {
+    isAuthenticated: !!state.auth.token
+  }
+}
+
+export default connect(mapStateToProps, null)(App);
